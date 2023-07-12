@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/ui-main.css" />
+    <link rel="stylesheet" href="stylesheets/animations.css" />
+    <link rel="stylesheet" href="stylesheets/mediaqueries.css" />
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <nav class="f-r"></nav>
+    <main class="f-c alg-c">
+      <h2 class="f-c alg-c jst-c">Identify same cards :</h2>
+      <div id="game">
+        <!-- the #game will be populated using data.js -->
+        <!-- the below button will be erased be the script -->
+        <!-- But I am still keeping it as a reference... -->
+        <button type="button" class="card" data-image="angryface">
+          <div class="sides-encloser">
+            <img alt="emoji" src="assets/QuestionMark4.png" class="front" />
+            <img src="assets/angryface.png" alt="emoji" class="back" />
+          </div>
+        </button>
+      </div>
+    </main>
+    <!-- first data should be populated because that will be used by app.js -->
+    <script src="app/data.js"></script>
+    <!-- styler.js will also be used in app.js-->
+    <script src="app/styler.js"></script>
+    <!-- finally... :-) -->
+    <script src="app/app.js"></script>
+  </body>
+</html>

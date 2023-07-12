@@ -1,0 +1,24 @@
+@keyframes pop {
+    0%{
+        transform:scale(1);
+    }
+    25%{
+        transform:scale(0.75);
+    }
+    50%{
+        transform: scale(1.25);
+    }
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes rainbow{
+    0%{border-color: rgb(144 238 144);}
+    20%{border-color: #fff783;}
+    40%{border-color: #ffb2b2;}
+    60%{border-color:#bd82f5;}
+    80%{border-color: #798dff;}
+    100%{border-color:#7de1ff ;}
+}

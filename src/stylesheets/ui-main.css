@@ -1,0 +1,158 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+ *{
+    margin:0;
+    padding:0;
+    box-sizing : border-box;
+    font-family: 'Poppins', sans-serif;
+    color: aliceblue;
+}
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root{
+    --bg-color-one:rgb(0, 22, 31);
+    --bg-color-two:rgb(0, 18, 26);
+    --common-ancestor-font-size : 16px; 
+    --game-mg-top: 20px;
+    --game-card-width:75px; /*150*/
+    --grid-gutters : 5px; /*15*/
+    --game-card-border: 2.5px; /*3*/
+    --button-outline : 2.5px; /*5*/
+    --grid-size : 1fr 1fr 1fr 1fr; /* default size will be 4x4*/
+
+}
+
+/*  
+--common-ancestor-font-size is used as a reference of `em`
+unit of font-size.
+1em = 1 x font-size of `body`
+h1 , h2 , ... are also using `em` units.
+they are prodefine in the browser. 
+*/
+
+body, html{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--bg-color-one);
+    width: 100%;
+    min-height: 100vh;
+    font-size: var(--common-ancestor-font-size);
+}
+
+.f-r{
+    display: flex;
+    flex-direction: row;
+}
+
+.f-c{
+    display: flex;
+    flex-direction: column;
+}
+
+.alg-c{
+    align-items: center;
+}
+.jst-c{
+    justify-content: center;
+}
+
+
+nav{
+    width:100%;
+    height:30px;
+    background-color: #ffffff1e;
+}
+
+main{
+    padding: var(--game-mg-top);
+    width: 100%;
+}
+
+
+#game{
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.11);
+    height: auto;
+    margin-top: var(--game-mg-top);
+    border-radius: var(--game-mg-top); 
+    display: grid;
+    grid-template-columns: var(--grid-size) ;
+    grid-template-rows: var(--grid-size);
+    padding: var(--game-mg-top);
+    grid-gap: var(--grid-gutters);
+    position: relative;
+}
+
+/* Card Detailing begins here...*/
+.card{
+    border: var(--game-card-border) solid rgba(245, 245, 245, 0.5);
+    width: var(--game-card-width);
+    height: var(--game-card-width);
+    border-radius: var(--grid-gutters);
+    background-color: var(--bg-color-two);
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card:hover{
+    border: var(--game-card-border) solid white;
+}
+
+button[type=button]{
+    cursor: pointer;
+}
+
+button[type=button]:focus{
+    outline: var(--button-outline) solid rgba(154, 243, 255, 0.479);
+    border: var(--game-card-border) dashed white;
+    transition: 0.1s;
+    border-radius: 0%;
+}
+
+button[type=button]:active{
+    transform: scale(0.975);
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 100%;
+}
+
+.sides-encloser{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    padding: var(--grid-gutters);
+    border: var(--grid-gutters) solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.front, .back{
+    width: 100%;
+    border-radius: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top:0;
+    left:0;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    perspective: 100px;
+}
+
+.back{
+    transform:rotateY(180deg);
+}
+
