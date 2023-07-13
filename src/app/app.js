@@ -1,6 +1,7 @@
 gameCards = document.querySelectorAll(".card");
+gameBox = document.querySelector("#game");
 
-const maxManuallyOpenableElements = 2; // max no. of cards that ca be opened simultaneously.
+let maxManuallyOpenableElements = 2; // max no. of cards that ca be opened simultaneously.
 
 const sideFlipper = (event) => {
   element = event.currentTarget; //returns the element which is clicked.
@@ -35,42 +36,63 @@ let open_duration = 750; //max time(milisecond) for which a card remains opened 
 cardLogic = () => {
   if (manuallyOpenedCards.length != 0) {
     setTimeout(() => {
-      try {
-        //it was giving some errors , so...
-
-        if (
-          manuallyOpenedCards.length == maxManuallyOpenableElements &&
-          manuallyOpenedCards[0].dataset.image === //`dataset.image` represents `data-image` of HTML
-            manuallyOpenedCards[1].dataset.image
-        ) {
-          for (i of manuallyOpenedCards) {
-            i.removeEventListener("click", sideFlipper);
-            i.removeEventListener("click", manualListUpdater);
-            pairedCards.push(i);
-            // console.log(pairedCards);
-            successStyler(i); //defined in styler.js
-          }
-          manuallyOpenedCards.splice(0, 2);
-        } else {
-          manuallyOpenedCards[0].children[0].style.transform = "rotateY(0deg)";
-          manuallyOpenedCards.splice(0, 1); //removes the card from opened list
+      //error issue is now fixed, so removed that try/catch...
+      if (
+        manuallyOpenedCards.length == maxManuallyOpenableElements &&
+        manuallyOpenedCards[0].dataset.image === //`dataset.image` represents `data-image` of HTML
+          manuallyOpenedCards[1].dataset.image
+      ) {
+        for (i of manuallyOpenedCards) {
+          i.removeEventListener("click", sideFlipper);
+          i.removeEventListener("click", manualListUpdater);
+          pairedCards.push(i);
+          // console.log(pairedCards);
+          successStyler(i); //defined in styler.js
         }
-      } catch (e) {
-        /* no worries if there is an error !*/
-        // console.log("error occoured in card logic.");
-        // console.log(e);
+        manuallyOpenedCards.splice(0, 2);
+      } else if (manuallyOpenedCards.length != 0) {
+        manuallyOpenedCards[0].children[0].style.transform = "rotateY(0deg)";
+        manuallyOpenedCards.splice(0, 1); //removes the card from opened list
       }
     }, open_duration);
   }
 };
 
-gameCards.forEach((e) => {
-  e.addEventListener("click", sideFlipper); // flip the card on click
-  e.addEventListener("click", manualListUpdater); // adds the clicked card to the list
-  e.addEventListener("click", cardLogic); // this will run cardLogic, every time you click a card.
-  e.addEventListener("mouseenter", circleHighlighter); // Just for dopamine!
-  e.addEventListener("mouseleave", circleReverter); // Just for Dopamine!
-});
+function runGame() {
+  gameCards.forEach((e) => {
+    //the extra `if` is important for pause/play functionality.
+    if (pairedCards.length == 0 || pairedCards.includes(e) === false) {
+      e.addEventListener("click", sideFlipper); // flip the card on click
+      e.addEventListener("click", manualListUpdater); // adds the clicked card to the list
+      e.addEventListener("click", cardLogic); // this will run cardLogic, every time you click a card.
+      e.addEventListener("mouseenter", circleHighlighter); // Just for dopamine!
+      e.addEventListener("mouseleave", circleReverter); // Just for Dopamine!
+      e.addEventListener("click", VictoryChecker);
+    }
+    //Extra styling :
+    e.style.opacity = "1";
+  });
+}
+
+// runGame();
+
+function pauseGame() {
+  gameCards.forEach((e) => {
+    e.removeEventListener("click", sideFlipper); // flip the card on click
+    e.removeEventListener("click", manualListUpdater); // adds the clicked card to the list
+    e.removeEventListener("click", cardLogic); // this will run cardLogic, every time you click a card.
+    e.removeEventListener("mouseenter", circleHighlighter); // Just for dopamine!
+    e.removeEventListener("mouseleave", circleReverter); // Just for Dopamine!
+    e.addEventListener("click", VictoryChecker);
+    //Extra Styling :
+    e.style.opacity = "0.25";
+  });
+}
+// you can even call the pauseGame function in browser console
+// and it will still work.
+
+//When the Game in Loaded inicially, the game should bein the paused state.:
+pauseGame();
 
 /*
 12th of July, 2023

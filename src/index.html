@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="stylesheets/ui-main.css" />
     <link rel="stylesheet" href="stylesheets/animations.css" />
     <link rel="stylesheet" href="stylesheets/mediaqueries.css" />
+    <link rel="stylesheet" href="stylesheets/menus.css" />
     <title>Memory Game</title>
   </head>
   <body>
     <nav class="f-r"></nav>
     <main class="f-c alg-c">
-      <h2 class="f-c alg-c jst-c">Identify same cards :</h2>
       <div id="game">
         <!-- the #game will be populated using data.js -->
         <!-- the below button will be erased be the script -->
@@ -23,9 +23,27 @@
           </div>
         </button>
       </div>
+      <section id="game-info">
+        <div class="gi-box f-c">
+          <h5>Moves Left :</h5>
+          <span id="moves-left"> 50 </span>
+        </div>
+        <div class="gi-box f-c" id="clock">
+          <h5>Elapsed Time :</h5>
+          <span id="elapsed-time"> 00:00:00 </span>
+        </div>
+        <div class="gi-box f-c">
+          <h5 id="game-status">Click to play :</h5>
+          <button type="button" class="menu-btn f-r jst-c alg-c" id="play">
+            Play
+          </button>
+        </div>
+      </section>
     </main>
     <!-- first data should be populated because that will be used by app.js -->
     <script src="app/data.js"></script>
+    <!-- menus.js contains te logic of play button : -->
+    <script src="app/menus.js"></script>
     <!-- styler.js will also be used in app.js-->
     <script src="app/styler.js"></script>
     <!-- finally... :-) -->

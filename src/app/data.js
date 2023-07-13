@@ -94,11 +94,12 @@ const populate = (size) => {
 };
 
 populate(gridSize);
-const cards = document.querySelectorAll(".card");
+
+let gameCards = document.querySelectorAll(".card");
 
 const shuffle = () => {
-  cards.forEach((element) => {
-    let index = Math.round(Math.random() * cards.length);
+  gameCards.forEach((element) => {
+    let index = Math.round(Math.random() * gameCards.length);
     // console.log(index);
     element.style.order = index;
   });
