@@ -4,7 +4,7 @@ card-matching-game is a very basic game that majority of us would have alredy pl
 
 In this project, I will be using only `HTML`, `CSS` and `JavaScript`, without the usage of any external UI and/or State-Management framework / library like `React`, `Vue`, `Angular`, etc. , as a challenge.
 
-[click Here](https://maasir554.github.io/card-matching-game) to run the project.
+[click Here](https://maasir554.github.io/card-matching-game/src) to run the project.
 
 ## Basic Structure of the project :
 
