@@ -7,15 +7,20 @@ const gameMenu = document.getElementById("game-info");
 let gameIsRunning = false;
 
 const PlayPause = () => {
+  // console.log("The function PlayPause has bee called!");
+
   if (togglePlayButton.innerText == "Play Again") {
     pairedCards = []; // reset the array of paired cards
     manuallyOpenedCards = [];
     populate(gridSize);
     gameCards = document.querySelectorAll(".card");
     shuffle();
+    //NOTE: gameIsRunning is still FALSE. the below if-else seq. will run accordingly.
+  } else {
   }
-  //------------------------------
+  // -----------------------------------------------------------------
   if (gameIsRunning) {
+    // console.log("just before you clicked button, gameIsRunning was TRUE");
     pauseGame(); // defined in app.js
     gameIsRunning = false;
     togglePlayButton.innerText = "Resume";
@@ -26,6 +31,7 @@ const PlayPause = () => {
     gameMenu.style.opacity = "1";
     gameMenu.style.border = "2px solid white";
   } else {
+    // console.log("just before you clicked button, gameIsRunning was FALSE");
     runGame(); // defined in app.js
     gameIsRunning = true;
     togglePlayButton.innerText = "Pause";
@@ -44,10 +50,11 @@ togglePlayButton.addEventListener("click", PlayPause);
 //when the game is complete, i.e. the user ha won the game, then:
 // VictoryChecker.js wil be used in app.js
 const VictoryChecker = () => {
-  gameIsRunning = false;
+  //A severe issue here was fixed!
   // gridSize can be found in data.js
   setTimeout(() => {
     if (pairedCards.length == gridSize ** 2) {
+      gameIsRunning = false;
       togglePlayButton.innerText = "Play Again";
       root.style.setProperty("--menu-btn-primary", "rgb(65, 177, 0)");
       root.style.setProperty("--menu-btn-secondary", "rgb(73, 199, 0");
