@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="stylesheets/ui-main.css" />
     <link rel="stylesheet" href="stylesheets/animations.css" />
-    <link rel="stylesheet" href="stylesheets/mediaqueries.css" />
     <link rel="stylesheet" href="stylesheets/menus.css" />
+    <link rel="stylesheet" href="stylesheets/mediaqueries.css" />
+    <link rel="stylesheet" href="stylesheets/dialogueboxes.css" />
+    <!-- for GitHub Star button :- -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>Memory Game</title>
   </head>
   <body>
-    <nav class="f-r"></nav>
+    <nav id="top-nav" class="f-r"></nav>
     <main class="f-c alg-c">
       <div id="game">
         <!-- the #game will be populated using data.js -->
@@ -39,7 +42,76 @@
           </button>
         </div>
       </section>
+
+      <!-- DIALOGUE BOX FOR INDICATING GAME COMPLETION: -->
+      <section id="victory-box">
+        <nav>
+          <svg
+            id="victory-box-close-button"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+          >
+            <path
+              d="M810.65984 170.65984q18.3296 0 30.49472 12.16512t12.16512 30.49472q0 18.00192-12.32896 30.33088l-268.67712 268.32896 268.67712 268.32896q12.32896 12.32896 12.32896 30.33088 0 18.3296-12.16512 30.49472t-30.49472 12.16512q-18.00192 0-30.33088-12.32896l-268.32896-268.67712-268.32896 268.67712q-12.32896 12.32896-30.33088 12.32896-18.3296 0-30.49472-12.16512t-12.16512-30.49472q0-18.00192 12.32896-30.33088l268.67712-268.32896-268.67712-268.32896q-12.32896-12.32896-12.32896-30.33088 0-18.3296 12.16512-30.49472t30.49472-12.16512q18.00192 0 30.33088 12.32896l268.32896 268.67712 268.32896-268.67712q12.32896-12.32896 30.33088-12.32896z"
+            />
+          </svg>
+        </nav>
+        <div id="victory-box-info">
+          <h1>&#127881; Game Completed! &#127881;</h1>
+          <p>you solved the game in 50 seconds.</p>
+          <p>Your score is : <span id="score">1200</span></p>
+        </div>
+        <button
+          type="button"
+          class="link-btn f-r jst-c alg-c"
+          id="close-victory-box"
+        >
+          Close
+        </button>
+      </section>
+      <div id="overlay"></div>
     </main>
+    <footer class="bottom-footer">
+      <!-- GitHub Download Button -->
+      <a
+        class="github-button"
+        href="https://github.com/maasir554/card-matching-game/archive/HEAD.zip"
+        data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+        data-icon="octicon-download"
+        aria-label="Download buttons/github-buttons on GitHub"
+        >Download</a
+      >
+
+      <p class="f-r alg-c">Made by Mohammad Maasir</p>
+      <!-- GitHub Follow Button -->
+      <a
+        class="github-button"
+        href="https://github.com/maasir554"
+        data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+        aria-label="Follow @buttons on GitHub"
+        >Follow @maasir554</a
+      >
+      <!-- GitHub Star button -->
+      <a
+        class="github-button"
+        href="https://github.com/maasir554/card-matching-game"
+        data-color-scheme="no-preference: dark_dimmed; light: dark; dark: dark;"
+        data-icon="octicon-star"
+        aria-label="Star buttons/github-buttons on GitHub"
+      >
+        Star
+      </a>
+      <!-- GitHub Fork button -->
+      <a
+        class="github-button"
+        href="https://github.com/maasir554/card-matching-game/fork"
+        data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+        data-icon="octicon-repo-forked"
+        aria-label="Fork buttons/github-buttons on GitHub"
+        >Fork</a
+      >
+    </footer>
     <!-- first data should be populated because that will be used by app.js -->
     <script src="app/data.js"></script>
     <!-- menus.js contains te logic of play button : -->

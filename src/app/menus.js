@@ -48,7 +48,8 @@ const PlayPause = () => {
 togglePlayButton.addEventListener("click", PlayPause);
 
 //when the game is complete, i.e. the user ha won the game, then:
-// VictoryChecker.js wil be used in app.js
+// VictoryChecker wil be used in app.js
+
 const VictoryChecker = () => {
   //A severe issue here was fixed!
   // gridSize can be found in data.js
@@ -62,6 +63,25 @@ const VictoryChecker = () => {
       statusBox.innerText = "Enjoyed? :";
       gameMenu.style.opacity = "1";
       gameMenu.style.border = "1px solid white";
+      // Now, for the dialogue box and overlay, :-
+      setTimeout(() => {
+        root.style.setProperty("--victory-box-display-switch", "flex");
+        root.style.setProperty("--overlay-display-switch", "block");
+      }, 500);
+      pairedCards.forEach((e) => {
+        e.removeEventListener("click", VictoryChecker); // to avoid glitch.
+      });
     }
   }, 550);
 };
+// Now, for closing the victory box :
+crossVictoryBoxButton = document.getElementById("victory-box-close-button");
+closeVictoryBoxButton = document.getElementById("close-victory-box");
+closeVictoryBoxButton.addEventListener("click", () => {
+  root.style.setProperty("--victory-box-display-switch", "none");
+  root.style.setProperty("--overlay-display-switch", "none");
+});
+crossVictoryBoxButton.addEventListener("click", () => {
+  root.style.setProperty("--victory-box-display-switch", "none");
+  root.style.setProperty("--overlay-display-switch", "none");
+});

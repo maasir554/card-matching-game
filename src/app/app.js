@@ -83,7 +83,7 @@ function pauseGame() {
     e.removeEventListener("click", cardLogic); // this will run cardLogic, every time you click a card.
     e.removeEventListener("mouseenter", circleHighlighter); // Just for dopamine!
     e.removeEventListener("mouseleave", circleReverter); // Just for Dopamine!
-    e.addEventListener("click", VictoryChecker);
+    e.removeEventListener("click", VictoryChecker);
     //Extra Styling :
     e.style.opacity = "0.25";
   });

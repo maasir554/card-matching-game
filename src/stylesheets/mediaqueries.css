@@ -1,0 +1,28 @@
+@media only screen and (min-width :0px) and (max-width:375px){
+    :root{
+        --common-ancestor-font-size : 10px;
+        --gi-spacing : 1.5px;
+        --game-card-width :60px;
+        --card-circle-border :1px solid rgba(255, 255, 255, 0.5);
+        --menu-padding : 7.5px;
+        --game-info-min-height : 0px;
+        --grid-gutters:2.5px;
+        --game-mg-top : 7.5px;
+        --top-nav-height :50px;
+        --game-card-border :1px;
+    }
+}
+@media only screen and (min-width :350px) and (max-width:420px){
+    
+    :root{
+        --common-ancestor-font-size : 14px;
+        --gi-spacing : 2.5px;
+        --game-card-width :70px;
+        --card-circle-border :2.5px solid rgba(255, 255, 255, 0.5);
+        --game-mg-top : 10px;
+        --top-nav-height : 50px;
+    }
+    .bottom-footer > p{
+        font-size: 7.5px;
+    }
+}

@@ -25,7 +25,9 @@ a {
     --game-card-border: 2.5px; /*3*/
     --button-outline : 2.5px; /*5*/
     --grid-size : 1fr 1fr 1fr 1fr; /* default size will be 4x4*/
-    --menu-bg : rgba(255, 255, 255, 0.11)
+    --menu-bg : rgba(255, 255, 255, 0.11);
+    --card-circle-border:5px solid rgba(255, 255, 255, 0.5);
+    --top-nav-height :30px;
 }
 
 /*  
@@ -47,6 +49,11 @@ body, html{
     font-size: var(--common-ancestor-font-size);
 }
 
+body{
+    justify-content: space-between;
+    /* min-height: 110vh; */
+}
+
 .f-r{
     display: flex;
     flex-direction: row;
@@ -65,14 +72,14 @@ body, html{
 }
 
 
-nav{
+#top-nav{
     width:100%;
-    height:30px;
+    height:var(--top-nav-height);
     background-color: #ffffff1e;
 }
 
 main{
-    padding: var(--game-mg-top);
+    /* padding: var(--game-mg-top); */
     width: 100%;
 }
 
@@ -148,7 +155,7 @@ main{
     position: absolute;
     top:0;
     left:0;
-    border: 5px solid rgba(255, 255, 255, 0.5);
+    border: var(--card-circle-border);
     perspective: 100px;
 }
 
@@ -156,3 +163,28 @@ main{
     transform:rotateY(180deg);
 }
 
+
+.bottom-footer{
+    display : grid;
+    grid-template-columns: 1fr 20fr 2.5fr 1fr 1fr;
+    background-color: rgb(0, 43, 78);
+    width: 100%;
+    height: auto;
+    font-size: 0.75em;
+    justify-content: center;
+    padding: 7.5px 20px;
+}
+
+.bottom-footer > p {
+    color: rgb(187, 186, 186);
+    justify-content: flex-end;
+    margin-right: 5px;
+    display: inline-flex;
+}
+
+.bottom-footer > span{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 2.5px;
+}
