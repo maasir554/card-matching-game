@@ -1,4 +1,4 @@
-// const root = document.querySelector(":root");
+// const root = document.querySelector(":root"); /* root alredy imported in previosus scripts.*/
 // `root` was alredy defined in data.js
 const togglePlayButton = document.querySelector("#play");
 const statusBox = document.getElementById("game-status");
@@ -67,9 +67,10 @@ const VictoryChecker = () => {
       setTimeout(() => {
         root.style.setProperty("--victory-box-display-switch", "flex");
         root.style.setProperty("--overlay-display-switch", "block");
-      }, 500);
+      }, 250);
       pairedCards.forEach((e) => {
         e.removeEventListener("click", VictoryChecker); // to avoid glitch.
+        e.children[0].children[1].style.animation = "rainbow 0.5s infinite";
       });
     }
   }, 550);
@@ -84,4 +85,21 @@ closeVictoryBoxButton.addEventListener("click", () => {
 crossVictoryBoxButton.addEventListener("click", () => {
   root.style.setProperty("--victory-box-display-switch", "none");
   root.style.setProperty("--overlay-display-switch", "none");
+});
+
+// For navigation bar :
+
+instrucBtn = document.getElementById("instruction-button");
+instrucBox = document.getElementById("instructions");
+
+instrucBtn.addEventListener("click", () => {
+  /* Yeh variable andar define karna bahut hi zaroori hai, warna ye update nahi hota hai.. */
+  let instrucDisplay = getComputedStyle(root).getPropertyValue(
+    "--instructions-display"
+  );
+  if (instrucDisplay == "none") {
+    root.style.setProperty("--instructions-display", "block");
+  } else {
+    root.style.setProperty("--instructions-display", "none");
+  }
 });

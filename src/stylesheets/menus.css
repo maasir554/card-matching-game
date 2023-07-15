@@ -14,6 +14,7 @@
 #game-info{
     min-height: var(--game-info-min-height);
     margin-top: var(--game-mg-top);
+    margin-bottom: var(--game-mg-top) ;
     background-color: var(--menu-bg);
     border: var(--game-card-border) solid transparent;
     display:grid;
@@ -23,7 +24,7 @@
     align-items: center;
     border: 1px solid white;
     width: var(--game-info-width);
-    max-width: 500px;
+    max-width: 700px;
 
 }
 

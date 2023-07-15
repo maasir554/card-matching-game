@@ -4,7 +4,7 @@ gameBox = document.querySelector("#game");
 let maxManuallyOpenableElements = 2; // max no. of cards that ca be opened simultaneously.
 
 const sideFlipper = (event) => {
-  element = event.currentTarget; //returns the element which is clicked.
+  element = event.currentTarget; //returns the element which is clicked.(when used in eventlistener)
   if (
     element.children[0].style.transform != "rotateY(180deg)" &&
     manuallyOpenedCards.length < maxManuallyOpenableElements
@@ -16,7 +16,7 @@ const sideFlipper = (event) => {
 };
 
 const manualListUpdater = (event) => {
-  e = event.currentTarget;
+  e = event.currentTarget; // we are doing this because this function will be added in eventlistener.
   if (manuallyOpenedCards.includes(e)) {
     manuallyOpenedCards = manuallyOpenedCards.filter((item) => item !== e);
   } else if (manuallyOpenedCards.length < maxManuallyOpenableElements) {
@@ -49,7 +49,7 @@ cardLogic = () => {
           // console.log(pairedCards);
           successStyler(i); //defined in styler.js
         }
-        manuallyOpenedCards.splice(0, 2);
+        manuallyOpenedCards.splice(0, 2); //removes both the paired elements
       } else if (manuallyOpenedCards.length != 0) {
         manuallyOpenedCards[0].children[0].style.transform = "rotateY(0deg)";
         manuallyOpenedCards.splice(0, 1); //removes the card from opened list
@@ -83,7 +83,7 @@ function pauseGame() {
     e.removeEventListener("click", cardLogic); // this will run cardLogic, every time you click a card.
     e.removeEventListener("mouseenter", circleHighlighter); // Just for dopamine!
     e.removeEventListener("mouseleave", circleReverter); // Just for Dopamine!
-    e.removeEventListener("click", VictoryChecker);
+    e.removeEventListener("click", VictoryChecker); //in menus.js
     //Extra Styling :
     e.style.opacity = "0.25";
   });
@@ -91,7 +91,7 @@ function pauseGame() {
 // you can even call the pauseGame function in browser console
 // and it will still work.
 
-//When the Game in Loaded inicially, the game should bein the paused state.:
+//When the Game in Loaded inicially, the game should be in the paused state.:
 pauseGame();
 
 /*

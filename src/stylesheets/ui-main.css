@@ -7,6 +7,8 @@
     font-family: 'Poppins', sans-serif;
     color: aliceblue;
 }
+
+
 input,
 textarea,
 button,
@@ -28,6 +30,7 @@ a {
     --menu-bg : rgba(255, 255, 255, 0.11);
     --card-circle-border:5px solid rgba(255, 255, 255, 0.5);
     --top-nav-height :30px;
+    --bottom-footer-template-columns : 1fr 20fr 2.5fr 1fr 1fr;
 }
 
 /*  
@@ -71,12 +74,6 @@ body{
     justify-content: center;
 }
 
-
-#top-nav{
-    width:100%;
-    height:var(--top-nav-height);
-    background-color: #ffffff1e;
-}
 
 main{
     /* padding: var(--game-mg-top); */
@@ -166,7 +163,7 @@ main{
 
 .bottom-footer{
     display : grid;
-    grid-template-columns: 1fr 20fr 2.5fr 1fr 1fr;
+    grid-template-columns: var(--bottom-footer-template-columns);
     background-color: rgb(0, 43, 78);
     width: 100%;
     height: auto;
@@ -187,4 +184,88 @@ main{
     align-items: center;
     justify-content: flex-end;
     margin-right: 2.5px;
+}
+
+
+/* Stylings for Top Nav Bar */
+
+
+
+:root{
+    --instructions-display  : none; /* or absolute*/
+
+}
+
+#top-nav{
+    width:100%;
+    height:var(--top-nav-height);
+    background-color: #ffffff1e;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 7.5px;
+    padding-right : 7.5px
+
+}
+
+.navigation-icon{
+    width:20px;
+    height: 20px;
+    fill:rgb(255, 255, 255);
+    opacity: 0.65;
+    margin-right: 7.5px;
+}
+.navigation-icon:hover{
+    cursor : pointer;
+    opacity: 1;
+}
+#brand-logo{
+    width:20px;
+    height: 20px;
+    fill:rgb(188, 255, 249);
+    margin-right:5px;
+}
+
+#branding{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;    
+}
+#branding > p{
+    font-weight: bold;
+    color: rgb(250, 247, 230);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    font-size: 16px;
+}
+.nav-button-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#instructions{
+    z-index: 999;
+    width:95vw;
+    max-width: 300px;
+    height: auto;
+    background-color: var(--bg-color-two);
+    border: 2px solid rgb(185, 255, 243);
+    border-radius: 10px;
+    position:absolute;
+    top: 30px;
+    right: 0;
+    padding : 10px;
+    box-shadow: -5px 5px 25px 5px rgba(125, 233, 233, 0.521) ;
+    display:var(--instructions-display)
+}
+
+#instructions > p, #instructions > h3  {
+    line-height: 1.25em;
+    margin-bottom: 10px;
 }

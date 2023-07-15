@@ -1,4 +1,5 @@
 const successStyler = (i) => {
+  /* To be fired when two cards gets paired.*/
   i.style.backgroundColor = "transparent";
   i.style.borderColor = "transparent";
   i.children[0].children[1].style.borderColor = "lightgreen";

@@ -22,3 +22,20 @@
     80%{border-color: #798dff;}
     100%{border-color:#7de1ff ;}
 }
+
+@keyframes popup {
+    0%{
+    position: absolute;
+    top : 0%;
+    left:50%;
+    transform: translate3D(-50%,-50%,-500px) scale(0.25) rotateX(90deg);
+    background-color: black;
+    border-radius:1000px ;
+    }
+   
+    100%{
+     position: absolute;
+     transform: translate3D(-50%,-50%,0px) scale(1) rotateX(0deg);
+     opacity: 1;
+}
+}

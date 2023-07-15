@@ -1,8 +1,37 @@
-@media only screen and (min-width :0px) and (max-width:375px){
+/* For very small screens, like smart watch. */
+@media only screen and (min-width :0px) and (max-width:275px) {
+    :root{
+        --common-ancestor-font-size : 8px;
+        --gi-spacing : 1.0px;
+        --game-card-width :21vw;
+        --card-circle-border :0.5px solid rgba(255, 255, 255, 0.5);
+        --menu-padding : 1.5px;
+        --game-info-min-height : 0px;
+        --grid-gutters:1.5px;
+        --game-mg-top : 2.5px;
+        --top-nav-height :25px;
+        --game-card-border :1px;
+    }
+    .bottom-footer > p{
+        display: none;
+    }
+    #GH-download-btn{
+        display: none;
+    }
+    #GH-fork-btn{
+        display: none;
+    }
+}
+
+
+
+/* For Small-Sized mobile phones :- */
+
+@media only screen and (min-width :275px) and (max-width:372px){
     :root{
         --common-ancestor-font-size : 10px;
         --gi-spacing : 1.5px;
-        --game-card-width :60px;
+        --game-card-width :20vw;
         --card-circle-border :1px solid rgba(255, 255, 255, 0.5);
         --menu-padding : 7.5px;
         --game-info-min-height : 0px;
@@ -11,18 +40,64 @@
         --top-nav-height :50px;
         --game-card-border :1px;
     }
+    .bottom-footer > p{
+        display: none;
+    }
+    #GH-download-btn{
+        display: none;
+    }
 }
-@media only screen and (min-width :350px) and (max-width:420px){
+
+/* For Medium-Sized mobile phones :-*/
+@media only screen and (min-width :372px) and (max-width:535px){
     
     :root{
         --common-ancestor-font-size : 14px;
         --gi-spacing : 2.5px;
-        --game-card-width :70px;
+        --game-card-width :20vw;
         --card-circle-border :2.5px solid rgba(255, 255, 255, 0.5);
         --game-mg-top : 10px;
         --top-nav-height : 50px;
+        --bottom-footer-template-columns : 20fr 2.5fr 1fr ;
     }
     .bottom-footer > p{
-        font-size: 7.5px;
+        font-size: 10px;
+        justify-content: flex-start;
     }
+    #GH-download-btn{
+        display: none;
+    }
+    #GH-fork-btn{
+        display: none;
+    }
+}
+
+/*For tablets :*/
+@media only screen and (min-width : 535px) and (max-width:655px){
+
+    :root{
+        --common-ancestor-font-size : 16px;
+        --gi-spacing : 2.5px;
+        --game-card-width :15vw;
+        --card-circle-border :5px solid rgba(255, 255, 255, 0.5);
+        --game-mg-top : 20px;
+        --top-nav-height : 50px;
+    }
+
+}
+
+/* For desktops / laptops */
+@media only screen and (min-width : 655px) and (max-width:1440px){
+
+    :root{
+        --common-ancestor-font-size : 16px;
+        --gi-spacing : 2.5px;
+        --game-card-width :87.5px;
+        --card-circle-border :5px solid rgba(255, 255, 255, 0.5);
+        --game-mg-top : 20px;
+        --top-nav-height : 30px;
+        --button-outline : 5px;
+        --game-card-border:4px;
+    }
+
 }
