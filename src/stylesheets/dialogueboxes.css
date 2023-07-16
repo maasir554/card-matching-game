@@ -16,7 +16,7 @@
     transform: translate(-50%,-50%);
     width: calc(100% - 30px);
     max-width : 500px;
-    height : var(--victory-box-height);
+    min-height : var(--victory-box-height);
     padding : var(--victory-box-padding);
     border-radius: var(--victory-box-border-radius);
     flex-direction: column;
@@ -55,9 +55,21 @@
     margin-bottom: 20px;
 }
 #victory-box-info > p {
+    line-height: 40px;
     font-size: 1.15em;
+    margin-bottom: 10px;
 } 
+#victory-box-info span{
+    padding: 0px 5px;
+    color: rgb(0 66 151);;
+    font-weight: bold;
+    font-size: 1.5rem; /* rem unit is relative to parent font size..*/
+    border-bottom: 5px dashed rgb(0 66 151);
+}
 
+#score{
+    color:gold !important;
+ }
 
 /* -------------- OVERLAY --------------- */
 

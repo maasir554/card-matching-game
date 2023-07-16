@@ -67,7 +67,10 @@ function runGame() {
       e.addEventListener("click", cardLogic); // this will run cardLogic, every time you click a card.
       e.addEventListener("mouseenter", circleHighlighter); // Just for dopamine!
       e.addEventListener("mouseleave", circleReverter); // Just for Dopamine!
-      e.addEventListener("click", VictoryChecker);
+      e.addEventListener("click", VictoryChecker); // Checks if the user had completed the game
+      //Now, for checking no. of moves consumed :
+      e.addEventListener("click", MovesCounsumedCountUpdater);
+      //----
     }
     //Extra styling :
     e.style.opacity = "1";
@@ -84,6 +87,7 @@ function pauseGame() {
     e.removeEventListener("mouseenter", circleHighlighter); // Just for dopamine!
     e.removeEventListener("mouseleave", circleReverter); // Just for Dopamine!
     e.removeEventListener("click", VictoryChecker); //in menus.js
+    e.removeEventListener("click", MovesCounsumedCountUpdater);
     //Extra Styling :
     e.style.opacity = "0.25";
   });
@@ -93,6 +97,9 @@ function pauseGame() {
 
 //When the Game in Loaded inicially, the game should be in the paused state.:
 pauseGame();
+
+//For updating score :
+setInterval(ScoreUpdater, 500);
 
 /*
 12th of July, 2023

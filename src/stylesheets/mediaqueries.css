@@ -11,6 +11,7 @@
         --game-mg-top : 2.5px;
         --top-nav-height :25px;
         --game-card-border :1px;
+        --top-nav-height : 50px;
     }
     .bottom-footer > p{
         display: none;
@@ -80,8 +81,8 @@
         --gi-spacing : 2.5px;
         --game-card-width :15vw;
         --card-circle-border :5px solid rgba(255, 255, 255, 0.5);
-        --game-mg-top : 20px;
-        --top-nav-height : 50px;
+        --game-mg-top : 15px;
+        --top-nav-height : 30px;
     }
 
 }
@@ -94,7 +95,7 @@
         --gi-spacing : 2.5px;
         --game-card-width :87.5px;
         --card-circle-border :5px solid rgba(255, 255, 255, 0.5);
-        --game-mg-top : 20px;
+        --game-mg-top : 15px;
         --top-nav-height : 30px;
         --button-outline : 5px;
         --game-card-border:4px;

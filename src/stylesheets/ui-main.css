@@ -21,7 +21,7 @@ a {
     --bg-color-one:rgb(0, 22, 31);
     --bg-color-two:rgb(0, 18, 26);
     --common-ancestor-font-size : 16px; 
-    --game-mg-top: 20px;
+    --game-mg-top: 15px;
     --game-card-width:75px; /*150*/
     --grid-gutters : 5px; /*15*/
     --game-card-border: 2.5px; /*3*/
@@ -191,10 +191,6 @@ main{
 
 
 
-:root{
-    --instructions-display  : none; /* or absolute*/
-
-}
 
 #top-nav{
     width:100%;
@@ -205,7 +201,7 @@ main{
     align-items: center;
     justify-content: space-between;
     padding-left: 7.5px;
-    padding-right : 7.5px
+    padding-right : 7.5px;
 
 }
 
@@ -228,10 +224,10 @@ main{
 }
 
 #branding{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
 }
 #branding > p{
     font-weight: bold;
@@ -249,6 +245,11 @@ align-items: center;
     position: relative;
 }
 
+:root{
+    --instructions-display  : none; /* or block*/
+    --settings-display : none; /*or  or grid*/
+
+}
 #instructions{
     z-index: 999;
     width:95vw;
@@ -261,11 +262,52 @@ align-items: center;
     top: 30px;
     right: 0;
     padding : 10px;
-    box-shadow: -5px 5px 25px 5px rgba(125, 233, 233, 0.521) ;
+    box-shadow: -2.5px 2.5px 15px 1px rgba(125, 233, 233, 0.521) ;
     display:var(--instructions-display)
 }
 
 #instructions > p, #instructions > h3  {
     line-height: 1.25em;
     margin-bottom: 10px;
+}
+
+#settings {
+    z-index: 999;
+    width:95vw;
+    max-width: 300px;
+    height: auto;
+    background-color: var(--bg-color-two);
+    border: 2px solid rgb(185, 255, 243);
+    border-radius: 10px;
+    position:absolute;
+    top: 30px;
+    right: 0;
+    padding : 10px;
+    display:var(--settings-display);
+    grid-template-columns: 3fr 1fr;
+    box-shadow: -2.5px 2.5px 15px 1px rgba(125, 233, 233, 0.521) ;
+}
+
+#settings > h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* Styling for Score Strip : */
+
+#score-strip {
+    width: 100%;
+    font-size: 0.75em;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+#score-strip  p {
+    margin-right: 10px;
+    color :rgb(0, 187, 187);
+    font-weight: bold;
+}
+#top-encloser{
+    width: 100%;
 }

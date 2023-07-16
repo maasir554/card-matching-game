@@ -2,7 +2,7 @@
     --game-info-width : 95%;
     --game-info-min-height : 0px;
     --gi-spacing : 5px;
-    --gi-moves-left-color : rgb(0, 252, 0);
+    --gi-moves-consumed-color : rgb(0, 252, 0);
     --menu-btn-primary :rgb(65, 177, 0) ;
     --menu-btn-secondary :rgb(73, 199, 0);
     --menu-btn-tertiary : rgb(59, 161, 0); 
@@ -35,9 +35,9 @@
 .gi-box > h5 {
     color: rgb(196, 255, 255);
 }
-#moves-left{
+#moves-consumed{
     font-size: var(--menu-info-detail-font-size);
-    color: var(--gi-moves-left-color);
+    color: var(--gi-moves-consumed-color);
     font-weight: bold;
     margin : calc(var(--gi-spacing)*2) 0;
 }
@@ -106,3 +106,4 @@ link-btn will be used for buttons with website links :-
     background-color: rgba(0, 117, 117, 0.308);
 
 }
+
