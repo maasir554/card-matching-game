@@ -20,6 +20,8 @@ const PlayPause = () => {
     mins = 0;
     secs = 0;
     movesConsumedCount = 0;
+    let MovesConsumedCountContainer = document.getElementById("moves-consumed"); // container alredy defined in one of the subsequent sections but still we have to define it here.
+    MovesConsumedCountContainer.innerText = movesConsumedCount 
     // TIMER_INT = setInterval(timeUpdater, 1000); //this will be called in the next if/else block.
     // So, no worries.
   } else {
